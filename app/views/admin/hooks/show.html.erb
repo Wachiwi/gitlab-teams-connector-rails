@@ -1,0 +1,10 @@
+<h1 class="ui header">
+	<%= @hook.name %>
+	<div class="sub header"><small>ID: <%= @hook.id %></small></div>
+</h1>
+<p><%= @hook.description %></p>
+
+<%= @hook.target %>
+
+<% # Move to helper %>
+<%= request.base_url %>/r/<%= @hook.id %>

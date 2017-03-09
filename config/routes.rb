@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post '/r/:hash', to: 'admin/hooks#redirect'
+
+  get '/admin', to: 'admin#index'
+
+  namespace :admin do
+    resources :hooks
+  end
+
+  get '/healthcheck', to: 'common#healthcheck'
+  root 'common#welcome'
 end

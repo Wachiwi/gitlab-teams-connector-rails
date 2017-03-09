@@ -1,0 +1,17 @@
+<%= form_tag admin_hooks_path, class: 'ui form' do %>
+  <div class='field'>
+    <%= label_tag :name %>
+    <%= text_field_tag :name  %>
+  </div>
+  <div class='field'></div>
+    <%= label_tag :target %>
+    <%= url_field_tag :target %>
+  <div class='field'>
+    <%= label_tag :description %>
+    <%= text_area_tag :description %>
+  </div>
+  <div class='field'>
+    <%= button_tag 'Reset', type: 'reset', class: 'ui secondary basic button' %>
+    <%= submit_tag 'Save', class: 'ui primary button' %>
+  </div>
+<% end %>
