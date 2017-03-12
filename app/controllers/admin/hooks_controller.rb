@@ -20,13 +20,13 @@ class Admin::HooksController < ApplicationController
     @hook = Admin::Hook.find(params[:id])
   end
 
-  def delete
-    hook = Admin::Hook.find(params[:hash])
+  def destroy
+    hook = Admin::Hook.find(params[:id])
     if hook.nil?
       render :json => {:error => 'Hook not found', }.to_json, :status => 404
     else
       hook.destroy
-      render :status => 200
+      redirect_to admin_hooks_url
     end
   end
 
@@ -34,14 +34,14 @@ class Admin::HooksController < ApplicationController
   end
 
   def edit
-    @hook = Admin::Hook.find(params[:hash])
+    @hook = Admin::Hook.find(params[:id])
     if @hook.nil?
       render 'hook_not_found', :status => 404
     end
   end
 
   def update
-    hook = Admin::Hook.find(params[:hash])
+    hook = Admin::Hook.find(params[:id])
     if hook.nil?
       render 'hook_not_found', :status => 404
     else
@@ -50,7 +50,7 @@ class Admin::HooksController < ApplicationController
   end
 
   def redirect
-    @hook = Admin::Hook.find(params[:hash])
+    @hook = Admin::Hook.find(params[:id])
     if @hook.nil?
       render :json => {:error => 'Hook not found'}.to_json, :status => 404
     else

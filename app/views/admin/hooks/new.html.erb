@@ -1,17 +1,99 @@
-<%= form_tag admin_hooks_path, class: 'ui form' do %>
-  <div class='field'>
-    <%= label_tag :name %>
-    <%= text_field_tag :name  %>
-  </div>
-  <div class='field'></div>
-    <%= label_tag :target %>
-    <%= url_field_tag :target %>
-  <div class='field'>
-    <%= label_tag :description %>
-    <%= text_area_tag :description %>
-  </div>
-  <div class='field'>
-    <%= button_tag 'Reset', type: 'reset', class: 'ui secondary basic button' %>
-    <%= submit_tag 'Save', class: 'ui primary button' %>
-  </div>
-<% end %>
+<div class="row">
+	<div class="column">
+		<h1 class="ui dividing header">
+			Create a new Hook!
+			<div class="sub header">
+				or go <%= link_to :back, admin_hooks_url %>
+			</div>
+		</h1>
+
+	</div>
+</div>
+<div class="two column row">
+	<div class="column">
+		<p>
+			This page shows an overview of all hooks you created here.<br /> You can select, view or edit them.
+		</p>
+	</div>
+	<div class="column">
+		<%= form_tag admin_hooks_path, class: 'ui form' do %>
+		<div class="ui top attached clearing segment">
+			<div class="step">
+				<div class="ui header">
+					Give your hook a name!
+				</div>
+				<p>
+					Give your hook a blasting title/name so you can recognize it fast again!
+				</p>
+				<div class='required field'>
+					<div class="ui labeled input">
+						<div class="ui label">
+							<%= label_tag :name %>
+						</div>
+						<%= text_field_tag :name  %>
+					</div>
+				</div>
+				<div class='field'>
+					<%= button_tag 'Continue', type: 'button', class: 'ui right floated primary basic continue button' %>
+				</div>
+			</div>
+			<div class="hidden step">
+				<div class="ui header">
+					Improve it with a description...
+				</div>
+				<p>
+					For the case you forget about it you can specify description below that reminds you of what this hook is for.
+				</p>
+				<div class='field'>
+						<%= label_tag :description %>
+						<%= text_area_tag :description, nil, rows: 3 %>
+				</div>
+				<div class='field'>
+					<%= button_tag 'Back', type: 'button', class: 'ui left floated basic previous button' %>
+					<%= button_tag 'Continue', type: 'button', class: 'ui right floated primary basic continue button' %>
+				</div>
+			</div>
+			<div class="hidden step">
+				<div class="ui header">
+					Finally specify the target ...
+				</div>
+				<p>
+					Post the Office365 url that you got after creating the incoming webhook connector inside MS teams.
+				</p>
+				<div class='field'>
+					<div class="ui labeled input">
+						<div class="ui label">
+							<%= label_tag :target, 'Target URL' %>
+						</div>
+						<%= url_field_tag :target %>
+					</div>
+				</div>
+				<div class="field">
+					<%= button_tag 'Back', type: 'button', class: 'ui left floated basic previous button' %>
+					<%= submit_tag 'Save', class: 'ui right floated positive button' %>
+				</div>
+			</div>
+		</div>
+		<div class="ui three bottom attached steps">
+			<div class="active step">
+				<div class="content">
+					<div class="title">Naming</div>
+					<div class="description">Give your hook a title</div>
+				</div>
+			</div>
+			<div class="disabled step">
+				<div class="content">
+					<div class="title">Description</div>
+					<div class="description">Enter some description</div>
+				</div>
+			</div>
+			<div class="disabled step">
+				<div class="content">
+					<div class="title">Target</div>
+					<div class="description">Specify target Hook!</div>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>

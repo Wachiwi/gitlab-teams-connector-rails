@@ -1,0 +1,61 @@
+<div class="row">
+	<div class="column">
+		<h1 class="ui dividing header">
+			Check out your fancy Hook!
+			<div class="sub header">
+				or go
+				<%= link_to :back, admin_hooks_url %>
+			</div>
+		</h1>
+
+	</div>
+</div>
+<div class="two column row">
+	<div class="column">
+		<p>
+			This page shows an overview of all hooks you created here.<br/>
+			You can select, view or edit them.
+		</p>
+	</div>
+	<div class="column">
+		<%= form_tag admin_hook_path, method: :patch do %>
+			<div class="ui fluid card">
+				<div class="content">
+					<div class="header">
+						<div class='field'>
+							<div class="ui input">
+								<%= text_field_tag :name, nil, value: @hook.name %>
+							</div>
+						</div>
+					</div>
+					<div class="meta">
+						ID:
+						<%= @hook.id %>
+					</div>
+					<div class="description">
+						<div class='field'>
+							<%= text_area_tag :description, value: @hook.description, rows: 3 %>
+						</div>
+						<div class="two fields">
+							<div class="top attached field">
+								<div class="ui fluid input">
+									<%= text_field_tag nil, @hook.target, readonly: true %>
+								</div>
+							</div>
+							<div class="bottom attached field">
+								<div class="ui fluid action input">
+									<%= text_field_tag nil, "#{request.base_url}/r/#{@hook.id}", readonly: true %>
+									<%= button_tag 'Copy', type: 'button', class: 'ui copy button' %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="extra content">
+					<%= link_to 'Cancel', @hook, class: 'ui left floated basic primary button' %>
+					<%= submit_tag 'Save', class: 'ui right floated basic positive button' %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

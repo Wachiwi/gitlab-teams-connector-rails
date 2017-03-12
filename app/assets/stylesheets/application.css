@@ -14,3 +14,15 @@
  *= require_self
  *= require semantic-ui
  */
+
+ body {
+	 height: 100vh;
+ }
+
+ #main-body {
+   padding-top: 50px;
+ }
+
+ .decent {
+   color: rgb(102,102,102);
+ }

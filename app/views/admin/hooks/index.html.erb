@@ -1,22 +1,43 @@
-<% if @hooks.empty? %>
-<div class="ui relaxed divided list">
-	<div class="item">
-		<div class="content">
-			<div class="header">No hooks created. Try <%= link_to 'create a new one', new_admin_hook_url %></div>
+<div class="row">
+	<div class="column">
+		<h1 class="ui dividing header">Hooks-Overview</h1>
+	</div>
+</div>
+<div class="two column row">
+	<div class="column">
+		<div class="ui basic clearing section">
+			<p>
+				This page shows an overview of all hooks you created here.<br/>
+				You can select, view or edit them.
+			</p>
+			<%= link_to 'Create a new Hook', new_admin_hook_url, class: 'ui positive button' %>
+		</div>
+	</div>
+	<div class="column">
+		<div class="ui very relaxed large divided list">
+			<% if @hooks.empty? %>
+				<div class="item">
+					<div class="content">
+						<div class="header">No hooks created.</div>
+						<div class="description">
+							Try to <%= link_to 'create a new one', new_admin_hook_url %>
+						</div>
+					</div>
+				</div>
+			<% else %>
+				<% for hook in @hooks %>
+				<div class="item">
+					<%= semantic_icon('large share alternate') %>
+					<!--<%= link_to semantic_icon(:linkify), hook%>-->
+					<div class="content">
+						<%= link_to hook.name, hook, class: 'header' %>
+						<div class="description">
+							<%= hook.description %>
+						</div>
+					</div>
+				</div>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 </div>
-<% else %>
-<div class="ui relaxed divided list">
-	<% for hook in @hooks %>
-	<div class="item">
-		<%= semantic_icon :linkify %>
-		<!-- <i class="large github middle aligned icon"></i> -->
-		<div class="content">
-			<a class="header"><%= hook.name %></a>
-			<div class="description"><%= hook.description %></div>
-		</div>
-	</div>
-	<% end %>
-</div>
-<% end %>
