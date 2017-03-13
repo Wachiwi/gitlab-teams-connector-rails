@@ -1,24 +1,26 @@
-# README
+# Gitlab-Teams-Connector (Rails Version)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Important Notice:**
 
-Things you may want to cover:
+> This project is part of a learning project of mine. I wanted to get a feel for the difference between different programming languages. In my case Elixir, Ruby and Python.
+> This is the python version of the app/helper. There exist multiple gitlab-teams-connectors with different feature sets in [my profile](https://github.com/Wachiwi?utf8=✓&tab=repositories&q=gitlab-teams-connector&type=&language=).
 
-* Ruby version
+**Another Notice:**
 
-* System dependencies
+> THIS APP IS CURRENTLY NOT WORKING
 
-* Configuration
+# Setup
 
-* Database creation
+```
+bundle install
+bundle exec rails s
+```
 
-* Database initialization
+# How to use it
 
-* How to run the test suite
+*Needs to be written*
 
-* Services (job queues, cache servers, search engines, etc.)
+# Tests
 
-* Deployment instructions
+*Needs to be specified (tests wanted)*
 
-* ...
